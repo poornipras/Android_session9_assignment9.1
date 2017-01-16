@@ -1,0 +1,20 @@
+a)What is the difference between Internal Storage & External Storage?
+
+Internal Storage:
+Files belong to the Application and will be deleted when user uninstalls the app.
+Other users or Application cannot access these private files.
+Deleted when user uninstalls the Application.
+The Internal Storage is reserved for your Operating System
+Memory is less(many Mb's few GB's)
+Whenever we reset factory settings, all this storage gets erased.
+This memory is reserved for your operating system and personal data. 
+It will never show up whenever you connect your device to the computer.
+
+External Storage:
+External Storage is the storage capacity of your phone. It it the storage which can be removed easily and we can use this storage to save all your songs,pics,videos and etc like SD card.
+Only available as long as SD card is mounted on the phone.
+These are available to other Applications and users so not secure.
+Cannot be deleted when user uninstalls the Application unless they are located inside directory returned by getExternalFilesDir().
+Example are pictures or other downloaded files.
+More memory in many GB's.
+It depends on the compatibility of the memory card slot and to what extent is it supported.It is the storage which can be removed easily by you (your memory card) and can be used for storing pictures, music, videos and the likes. You may or may not be able to install applications on it. This is because some manufacturers allow for it while some don’t. To an extent, even cloud storage can be categorized as external storage.

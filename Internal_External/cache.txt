@@ -1,0 +1,18 @@
+b)For how long the data resides in the cache?
+
+This is app-specific so when we uninstall the app the cache will be automaticlly cleared.
+If the system gets low on storage, the first place it is going to free resources is from your cache directory. 
+The cache directory can typically be cleared manually from the app info screen.
+Clearing the files directory will also clear the cache directory.
+
+The intent for this directory is store temporary data your application may need to keep around between sessions, but may not be vital to keep them forever.We can access this directory with Context.getCacheDir(). This will show up as "Cache" on app settings
+The system will not clear any data from the files directory.
+
+Example for  cache can be a recently opened mail.Once opened, cache the data so when the user wants to read that email again, it loads instantly rather using the network again to retrieve the same data. It need not be kept forever, because eventually the user will be finished with the email.
+Cache will be deleteted if user uninstalls the application.
+
+        File cacheDir = context.getCacheDir();//gets a reference to the cache directory
+        long size = getDirSize(cacheDir);//we can determine the space available in the cahce directory
+
+getCacheDir()gives reference to internal cache.
+getExternalCacheDir() for external storage specific to app path.

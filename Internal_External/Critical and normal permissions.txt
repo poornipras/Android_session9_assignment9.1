@@ -1,0 +1,96 @@
+c) What are the critical Permissions and Normal Permissions? What are the examples of each? 
+
+
+Normal Permissions:
+Normal permissions do not directly risk the user's privacy. If your app lists a normal permission in its manifest, the system grants the permission automatically.Many permissions are designated as PROTECTION_NORMAL, which indicates that there's no great risk to the user's privacy or security in letting apps have those permissions.
+There's no great risk in allowing an app to vibrate the device, so that permission is designated as normal.
+Normal permissions cover areas where your app needs to access data or resources outside the app's sandbox, but where there's very little risk to the user's privacy or the operation of other apps. For example, permission to set the time zone is a normal permission. If an app declares in its manifest that it needs a normal permission, the system automatically grants the app that permission at install time. The system does not prompt the user to grant normal permissions, and users cannot revoke these permissions.
+
+As of API level 23, the following permissions are classified as PROTECTION_NORMAL:
+
+ACCESS_LOCATION_EXTRA_COMMANDS
+ACCESS_NETWORK_STATE
+ACCESS_NOTIFICATION_POLICY
+ACCESS_WIFI_STATE
+BLUETOOTH
+BLUETOOTH_ADMIN
+BROADCAST_STICKY
+CHANGE_NETWORK_STATE
+CHANGE_WIFI_MULTICAST_STATE
+CHANGE_WIFI_STATE
+DISABLE_KEYGUARD
+EXPAND_STATUS_BAR
+GET_PACKAGE_SIZE
+INSTALL_SHORTCUT
+INTERNET
+KILL_BACKGROUND_PROCESSES
+MODIFY_AUDIO_SETTINGS
+NFC
+READ_SYNC_SETTINGS
+READ_SYNC_STATS
+RECEIVE_BOOT_COMPLETED
+REORDER_TASKS
+REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
+REQUEST_INSTALL_PACKAGES
+SET_ALARM
+SET_TIME_ZONE
+SET_WALLPAPER
+SET_WALLPAPER_HINTS
+TRANSMIT_IR
+UNINSTALL_SHORTCUT
+USE_FINGERPRINT
+VIBRATE
+WAKE_LOCK
+WRITE_SYNC_SETTINGS
+
+
+Critical Permissions:
+If you list a dangerous permission, the user has to explicitly give approval to your app.Critical permissions cover areas where the app wants data or resources that involve the user's private information, or could potentially affect the user's stored data or the operation of other apps. For example, the ability to read the user's contacts is a dangerous permission.
+
+If your app needs a dangerous permission, you must check whether you have that permission every time you perform an operation that requires that permission. The user is always free to revoke the permission, so even if the app used the camera yesterday, it can't assume it still has that permission today.
+
+If the app has the permission, the method returns PackageManager.PERMISSION_GRANTED, and the app can proceed with the operation. If the app does not have the permission, the method returns PERMISSION_DENIED, and the app has to explicitly ask the user for permission.
+int permissionCheck = ContextCompat.checkSelfPermission(thisActivity,
+        Manifest.permission.WRITE_CALENDAR);
+To check if you have a permission, call the ContextCompat.checkSelfPermission() method. 
+If the app has the permission, the method returns PackageManager.PERMISSION_GRANTED, and the app can proceed with the operation. If the app does not have the permission, the method returns PERMISSION_DENIED, and the app has to explicitly ask the user for permission.
+These permissions have to be specified in the manifest file of the Application.These Applications may or maynot be granted these permisions.It has to request for the permission and can be revoked anytime.
+ For example, users would reasonably want to know whether an app can read their contact information, so users have to grant this permission explicitly.
+
+examples:
+
+Permission Group	Permissions
+
+
+CALENDAR	        READ_CALENDAR
+                        WRITE_CALENDAR
+
+CAMERA	                CAMERA
+
+CONTACTS	        READ_CONTACTS
+                        WRITE_CONTACTS
+                        GET_ACCOUNTS
+
+LOCATION	        ACCESS_FINE_LOCATION
+                        ACCESS_COARSE_LOCATION
+
+MICROPHONE	        RECORD_AUDIO
+
+PHONE     	        READ_PHONE_STATE
+                        CALL_PHONE
+                        READ_CALL_LOG
+                        WRITE_CALL_LOG
+                        ADD_VOICEMAIL
+                        USE_SIP
+                        PROCESS_OUTGOING_CALLS
+
+SENSORS	                BODY_SENSORS
+
+SMS      	        SEND_SMS
+                        RECEIVE_SMS
+                        READ_SMS
+                        RECEIVE_WAP_PUSH
+                        RECEIVE_MMS
+
+STORAGE	                READ_EXTERNAL_STORAGE
+                        WRITE_EXTERNAL_STORAGE
